@@ -1,0 +1,25 @@
+ALTER TABLE `org_tasks` ADD `ngo_id` INT(11) NULL DEFAULT NULL AFTER `org_staff_id`;
+
+INSERT INTO `admin_submodule` (`submodule_id`, `FK_module_id`, `submodule_name`, `link`, `show_link`, `list_link`, `show_list`, `show_edit`, `show_remove`, `other_name1`, `other_link1`, `show_link1`, `other_name2`, `other_link2`, `show_link2`, `other_name3`, `other_link3`, `show_link3`, `date`, `time`, `status`) VALUES (NULL, '3', 'Financial Years', 'admin/organisation/financial_years_add', 'yes', 'admin/organisation/financial_years', 'yes', 'yes', 'yes', NULL, NULL, 'no', NULL, NULL, 'no', NULL, NULL, 'no', '2020-06-19', '12:57:47', 'active');
+
+
+ALTER TABLE `proposal` ADD `proposal_title_org` VARCHAR(250) NULL DEFAULT NULL AFTER `title`;
+
+DROP TABLE IF EXISTS `org_documents_req_list`;
+CREATE TABLE IF NOT EXISTS `org_documents_req_list` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `org_id` int(10) NOT NULL,
+  `doc_name` varchar(100) NOT NULL,
+  `doc_type` varchar(100) NOT NULL COMMENT 'payment_processing_doc , ngo_document_list, csr_document_list',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+INSERT INTO `org_documents_req_list` (`id`, `org_id`, `doc_name`, `doc_type`) VALUES
+(1, 2, 'Payment Request', 'payment_processing_doc'),
+(2, 2, 'Utilization Certificate (Audited/Internally verified as per MOU)', 'payment_processing_doc'),
+(3, 2, 'Activity report (In Bajaj Format)', 'ngo_document_list'),
+(4, 2, 'Project Closure Report', 'ngo_document_list'),
+(5, 2, 'Focal Point Review Report', 'csr_document_list'),
+(6, 2, 'None', 'csr_document_list'),
+(7, 2, 'None', 'ngo_document_list');
+COMMIT;

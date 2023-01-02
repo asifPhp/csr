@@ -1,0 +1,142 @@
+ALTER TABLE `org_tasks` ADD `last_updated_date` DATETIME NULL DEFAULT NULL AFTER `project_id`;
+
+ALTER TABLE `org_ngo_review_status` ADD `org_last_updated_date` DATETIME NULL DEFAULT NULL AFTER `status`;  
+
+ALTER TABLE `proposal` ADD `org_last_updated_date` DATETIME NULL DEFAULT NULL AFTER `multiple_img_upload2`; 
+
+ALTER TABLE `project` ADD `cycle_file_upload_actual` VARCHAR(200) NOT NULL AFTER `cycle_file_upload`; 
+
+ALTER TABLE `org_tasks` ADD `ngo_id` INT(11) NULL DEFAULT NULL AFTER `org_staff_id`  
+
+ALTER TABLE `ngo_notification` ADD `project_document_id` INT(11) NOT NULL AFTER `cycle_id`;
+
+ALTER TABLE `project_cycle_details` ADD `no_of_cycle` INT(11) NOT NULL AFTER `org_staff_id`;
+
+ALTER TABLE `ngo_notification` ADD `org_task_id` INT(11) NOT NULL AFTER `cycle_id`;
+
+
+INSERT INTO `ngo_submodule` (`submodule_id`, `FK_module_id`, `submodule_name`, `link`, `icon_class`, `menu_link_show`, `show_link`, `list_link`, `menu_list_link_show`, `show_list`, `show_edit`, `show_remove`, `other_name1`, `other_link1`, `show_link1`, `other_name2`, `other_link2`, `show_link2`, `other_name3`, `other_link3`, `show_link3`, `date`, `time`, `status`) VALUES (NULL, '6', 'Notification', 'ngo/notification/index', 'fa-play', 'no', 'no', 'ngo/notification/index', 'yes', 'yes', 'no', 'no', 'Details', 'ngo/notification/ngo_notification_detail', 'yes', NULL, NULL, 'no', NULL, NULL, 'no', '2020-06-19', '13:26:27', 'active');
+
+
+ALTER TABLE `proposal` ADD `key_activities` LONGTEXT NOT NULL AFTER `benificiary_profile_solution`;
+
+
+
+
+
+
+ALTER TABLE `org_task_list` ADD `due_date_count` INT(11) NOT NULL AFTER `is_cycle_start`;
+
+ALTER TABLE `org_tasks` ADD `due_date_count` INT(11) NOT NULL AFTER `due_date`;
+
+ALTER TABLE `project_donors` ADD `vendor code` VARCHAR(100) NULL DEFAULT NULL AFTER `donor_amount`;
+
+ALTER TABLE `project_donors` CHANGE `vendor code` `vendor_code` VARCHAR(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;
+
+ALTER TABLE `org_tasks` ADD `org_type` VARCHAR(50) NOT NULL AFTER `task_type`;
+
+ALTER TABLE `org_tasks` ADD `requested_by` VARCHAR(200) NOT NULL AFTER `last_updated_date`;
+
+ALTER TABLE `org_tasks` ADD `requested_on` DATETIME NOT NULL AFTER `requested_by`;
+
+ALTER TABLE `proposal` ADD `proposal_status_for_ngo` VARCHAR(50) NOT NULL AFTER `proposal_status`
+
+ALTER TABLE `proposal` CHANGE `proposal_status_for_ngo` `proposal_status_for_ngo` VARCHAR(50) CHARACTER SET utf8mb4 NOT NULL DEFAULT 'Created'
+
+ALTER TABLE `ngo_notification` ADD `request_type` VARCHAR(50) NOT NULL AFTER `created_time`;
+
+ALTER TABLE `project` ADD `project_status_for_ngo` VARCHAR(50) NULL DEFAULT NULL AFTER `project_status`;
+
+ALTER TABLE `org_assigner_mgmt` ADD `project_id` INT(11) NOT NULL AFTER `prop_id`;
+
+ ------Start--------------------------------------------------ALTER TABLE Proposal for Local------------------------------------------------------------------
+
+ALTER TABLE `proposal` CHANGE `organization_background_brief` `organization_background_brief` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL, CHANGE `project_summary_proposal` `project_summary_proposal` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL, CHANGE `benificiary_profile_brief` `benificiary_profile_brief` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL, CHANGE `benificiary_profile_statement` `benificiary_profile_statement` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL, CHANGE `benificiary_profile_solution` `benificiary_profile_solution` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL, CHANGE `specific_outcomes` `specific_outcomes` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL, CHANGE `project_sustainability` `project_sustainability` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL, CHANGE `balance_funds` `balance_funds` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL;
+
+------End--------------------------------------------------ALTER TABLE Proposal for Local------------------------------------------------------------------
+
+
+------Start--------------------------------------------------ALTER TABLE Proposal for Live------------------------------------------------------------------
+
+ALTER TABLE `proposal` CHANGE `organization_background_brief` `organization_background_brief` LONGTEXT CHARACTER SET utf8mb4  NULL DEFAULT NULL, CHANGE `project_summary_proposal` `project_summary_proposal` LONGTEXT CHARACTER SET utf8mb4  NULL DEFAULT NULL, CHANGE `benificiary_profile_brief` `benificiary_profile_brief` LONGTEXT CHARACTER SET utf8mb4  NULL DEFAULT NULL, CHANGE `benificiary_profile_statement` `benificiary_profile_statement` LONGTEXT CHARACTER SET utf8mb4  NULL DEFAULT NULL, CHANGE `benificiary_profile_solution` `benificiary_profile_solution` LONGTEXT CHARACTER SET utf8mb4  NULL DEFAULT NULL, CHANGE `specific_outcomes` `specific_outcomes` LONGTEXT CHARACTER SET utf8mb4  NULL DEFAULT NULL, CHANGE `project_sustainability` `project_sustainability` LONGTEXT CHARACTER SET utf8mb4  NULL DEFAULT NULL, CHANGE `balance_funds` `balance_funds` LONGTEXT CHARACTER SET utf8mb4  NULL DEFAULT NULL
+
+------End--------------------------------------------------ALTER TABLE Proposal for Live------------------------------------------------------------------
+
+
+
+
+
+
+ALTER TABLE `proposal` CHANGE `start_date` `start_date` DATE NULL DEFAULT NULL;
+
+ALTER TABLE `proposal` ADD `gc_id` INT(11) NOT NULL AFTER `org_last_updated_date`;
+
+ALTER TABLE `ngo` ADD `page1_validation_error` VARCHAR(5) NOT NULL AFTER `other_policies_name`, ADD `page2_validation_error` VARCHAR(5) NOT NULL AFTER `page1_validation_error`, ADD `page3_validation_error` VARCHAR(5) NOT NULL AFTER `page2_validation_error`, ADD `page4_validation_error` VARCHAR(5) NOT NULL AFTER `page3_validation_error`, ADD `page5_validation_error` VARCHAR(5) NOT NULL AFTER `page4_validation_error`, ADD `page6_validation_error` VARCHAR(5) NOT NULL AFTER `page5_validation_error`;
+
+ALTER TABLE `ngo` ADD `other_spacify_ddtail` VARCHAR(200) NOT NULL AFTER `operation_nature`;
+
+
+
+
+
+
+ALTER TABLE `ngo` CHANGE `geo_location` `geo_location` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL, CHANGE `geo_location_id` `geo_location_id` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL
+
+       
+
+ALTER TABLE `ngo` ADD `csr1_registration_number_radio` VARCHAR(5) NOT NULL AFTER `page6_validation_error`, ADD `csr1_registration_number` VARCHAR(200) NOT NULL AFTER `csr1_registration_number_radio`, ADD `upload_proof_csr1_actual` VARCHAR(200) NOT NULL AFTER `csr1_registration_number`, ADD `upload_proof_csr1_value` VARCHAR(200) NOT NULL AFTER `upload_proof_csr1_actual`;
+
+
+
+
+INSERT INTO `financial_years` (`financial_id`, `start_year`, `name`, `end_year`, `start_date`, `end_date`) VALUES (NULL, '2021', '2021-22', '2022', '2021-03-01', '2022-02-28'), (NULL, '2022', '2022-23', '2023', '2022-04-01', '2023-03-31'), (NULL, '2023', '2023-24', '2024', '2023-01-05', '2024-01-20');
+INSERT INTO `financial_years` (`financial_id`, `start_year`, `name`, `end_year`, `start_date`, `end_date`) VALUES (NULL, '2024', '2024-25', '2025', '2024-04-01', '2025-03-31'), (NULL, '2025', '2025-25', '2026', '2025-01-05', '2026-01-20');
+
+
+
+
+
+UPDATE `financial_years` SET `financial_id` = '1', `start_year` = '2010', `name` = '2010-11', `end_year` = '2011', `start_date` = '2010-04-01', `end_date` = '2011-03-31' WHERE `financial_years`.`financial_id` = 2017; UPDATE `financial_years` SET `financial_id` = '2', `start_year` = '2011', `name` = '2011-12', `end_year` = '2012', `start_date` = '2011-04-01', `end_date` = '2012-03-31' WHERE `financial_years`.`financial_id` = 2018; UPDATE `financial_years` SET `financial_id` = '3', `start_year` = '2012', `name` = '2012-13', `end_year` = '2023', `start_date` = '2012-04-01', `end_date` = '2013-03-31' WHERE `financial_years`.`financial_id` = 2019; UPDATE `financial_years` SET `financial_id` = '4', `start_year` = '2013', `name` = '2013-14', `end_year` = '2014', `start_date` = '2013-04-01', `end_date` = '20214-03-31' WHERE `financial_years`.`financial_id` = 2020; UPDATE `financial_years` SET `financial_id` = '5', `start_year` = '2014', `name` = '2014-15', `end_year` = '2015', `start_date` = '2014-04-01', `end_date` = '2015-03-31' WHERE `financial_years`.`financial_id` = 2022; UPDATE `financial_years` SET `financial_id` = '6', `start_year` = '2015', `name` = '2015-16', `end_year` = '2016', `start_date` = '2015-04-01', `end_date` = '2016-03-31' WHERE `financial_years`.`financial_id` = 2023; UPDATE `financial_years` SET `financial_id` = '7', `start_year` = '2016', `name` = '2016-17', `end_year` = '2017', `start_date` = '2016-04-01', `end_date` = '2017-03-31' WHERE `financial_years`.`financial_id` = 2024; UPDATE `financial_years` SET `financial_id` = '8', `start_year` = '2017', `name` = '2017-18', `end_year` = '2018', `start_date` = '2017-04-01', `end_date` = '2018-03-31' WHERE `financial_years`.`financial_id` = 2025; UPDATE `financial_years` SET `financial_id` = '9', `start_year` = '2018', `name` = '2018-19', `end_year` = '2019', `start_date` = '2018-04-01', `end_date` = '2019-03-31' WHERE `financial_years`.`financial_id` = 2026; UPDATE `financial_years` SET `financial_id` = '10', `start_year` = '2019', `name` = '2019-20', `end_year` = '2020', `start_date` = '2019-04-01', `end_date` = '2020-03-31' WHERE `financial_years`.`financial_id` = 2027; UPDATE `financial_years` SET `financial_id` = '11', `start_year` = '2020', `name` = '2020-21', `end_year` = '2021', `start_date` = '2020-04-01', `end_date` = '2021-03-31' WHERE `financial_years`.`financial_id` = 2028; UPDATE `financial_years` SET `financial_id` = '12', `start_year` = '2021', `name` = '2021-22', `end_year` = '2022', `start_date` = '2021-04-01', `end_date` = '2022-03-31' WHERE `financial_years`.`financial_id` = 2029; UPDATE `financial_years` SET `financial_id` = '13', `start_year` = '2022', `name` = '2022-23', `end_year` = '2023', `start_date` = '2022-04-01', `end_date` = '2023-03-31' WHERE `financial_years`.`financial_id` = 2030; UPDATE `financial_years` SET `financial_id` = '14', `start_year` = '2023', `name` = '2023-24', `end_year` = '2024', `start_date` = '2023-04-01', `end_date` = '2024-03-31' WHERE `financial_years`.`financial_id` = 2031; UPDATE `financial_years` SET `financial_id` = '15', `start_year` = '2024', `name` = '2024-25', `end_year` = '2025', `start_date` = '2024-04-01', `end_date` = '2025-03-31' WHERE `financial_years`.`financial_id` = 2032; UPDATE `financial_years` SET `financial_id` = '16', `start_year` = '2025', `name` = '2025-26', `end_year` = '2026', `start_date` = '2025-04-01', `end_date` = '2026-03-31' WHERE `financial_years`.`financial_id` = 2033; UPDATE `financial_years` SET `financial_id` = '17', `start_year` = '2026', `name` = '2026-27', `end_year` = '2027', `start_date` = '2026-04-01', `end_date` = '2027-03-31' WHERE `financial_years`.`financial_id` = 2034; UPDATE `financial_years` SET `financial_id` = '18', `start_year` = '2027', `name` = '2027-28', `end_year` = '2028', `start_date` = '2027-04-01', `end_date` = '2028-03-31' WHERE `financial_years`.`financial_id` = 2035; UPDATE `financial_years` SET `financial_id` = '19', `start_year` = '2028', `name` = '2028-29', `end_year` = '2029', `start_date` = '2028-04-01', `end_date` = '2029-03-31' WHERE `financial_years`.`financial_id` = 2036; UPDATE `financial_years` SET `financial_id` = '20', `start_year` = '2029', `name` = '2029-30', `end_year` = '2030', `start_date` = '2029-04-01', `end_date` = '2030-03-31' WHERE `financial_years`.`financial_id` = 2037; UPDATE `financial_years` SET `financial_id` = '21', `start_year` = '2030', `name` = '2030-31', `end_year` = '2031', `start_date` = '2030-04-01', `end_date` = '2031-03-31' WHERE `financial_years`.`financial_id` = 2038;
+
+
+
+
+ALTER TABLE `proposal` ADD `upload_budget_file_template` VARCHAR(500) NOT NULL AFTER `gc_id`, ADD `upload_budget_file_template_actual` VARCHAR(500) NOT NULL AFTER `upload_budget_file_template`;
+
+
+ALTER TABLE `ngo_district` ADD `prop_id` INT(11) NOT NULL AFTER `ngo_id`;
+
+
+
+
+ALTER TABLE `ngo_staff_account` ADD `login_tour` VARCHAR(5) NOT NULL DEFAULT 'yes' AFTER `is_deleted`;
+
+
+ALTER TABLE `ngo` ADD `page3_financial_years` VARCHAR(100) NOT NULL AFTER `governing_council`;
+
+
+ALTER TABLE `ngo` ADD `page5_financial_years` VARCHAR(100) NOT NULL AFTER `upload_proof_csr1_value`;
+
+
+
+
+ALTER TABLE `project_cycle_donor_details` ADD `project_donor_id` INT(11) NOT NULL AFTER `donor_dropdown_id`;
+
+ALTER TABLE `org_tasks` ADD `project_cycle_id` INT(11) NOT NULL AFTER `requested_on`;
+
+ALTER TABLE `org_tasks` ADD `requested_details` LONGTEXT NOT NULL AFTER `requested_on`;
+
+ALTER TABLE `project` ADD `board_review_upload` VARCHAR(200) NOT NULL AFTER `cycle_file_upload_actual`, ADD `board_review_upload_actual` VARCHAR(200) NOT NULL AFTER `board_review_upload`;
+
+
+ALTER TABLE `ngo` ADD `xl_file` VARCHAR(200) NOT NULL AFTER `uplpad_ITR_3_actual`, ADD `xl_file_actual` VARCHAR(200) NOT NULL AFTER `xl_file`;
+
+
+INSERT INTO `ngo_submodule` (`submodule_id`, `FK_module_id`, `submodule_name`, `link`, `icon_class`, `menu_link_show`, `show_link`, `list_link`, `menu_list_link_show`, `show_list`, `show_edit`, `show_remove`, `other_name1`, `other_link1`, `show_link1`, `other_name2`, `other_link2`, `show_link2`, `other_name3`, `other_link3`, `show_link3`, `date`, `time`, `status`) VALUES (NULL, '4', 'Create new Proposal', 'ngo/proposals/index', 'fa-plus', 'yes', 'yes', 'ngo/proposals/list', 'no', 'no', 'no', 'no', 'Details', '', 'no', NULL, NULL, 'no', NULL, NULL, 'no', '2020-06-19', '13:26:27', 'active');
+
+
+
+
+
+
+

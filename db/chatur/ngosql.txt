@@ -1,0 +1,113 @@
+
+
+
+CREATE TABLE `ngo` (
+  `id` int(11) NOT NULL,
+  `ngo_id` int(11) NOT NULL,
+  `staff_id` int(11) NOT NULL,
+  `superngo_id` int(11) NOT NULL,
+  `legal_name` varchar(200) DEFAULT NULL,
+  `website` varchar(200) DEFAULT NULL,
+  `created_time` datetime DEFAULT NULL,
+  `update_datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `is_deleted` int(11) DEFAULT NULL,
+  `brand_name` varchar(30) DEFAULT NULL,
+  `geo_location` varchar(200) DEFAULT NULL,
+  `geo_location_id` varchar(100) DEFAULT NULL,
+  `city_id` varchar(100) DEFAULT NULL,
+  `city` varchar(200) DEFAULT NULL,
+  `operation_nature` varchar(100) DEFAULT NULL,
+  `category_array` longtext NOT NULL,
+  `resource_managment` varchar(200) DEFAULT NULL,
+  `geographical_reach` varchar(50) DEFAULT NULL,
+  `beneficiary_reach` varchar(50) DEFAULT NULL,
+  `registration_detail` longtext,
+  `registration_number_12a` varchar(200) DEFAULT NULL,
+  `from_date_12a_valid` date DEFAULT NULL,
+  `expire_date_12a_valid` date DEFAULT NULL,
+  `tax_exemption_percentage` int(11) DEFAULT NULL,
+  `registration_number_80g` varchar(200) DEFAULT NULL,
+  `certificate_date_80G` date DEFAULT NULL,
+  `registration_80g_valid` varchar(100) DEFAULT NULL,
+  `tax_exemption_type` varchar(20) DEFAULT NULL,
+  `pan_number` varchar(200) DEFAULT NULL,
+  `epf_number` varchar(200) DEFAULT NULL,
+  `professional_tax_number` varchar(200) DEFAULT NULL,
+  `tan_number` varchar(200) DEFAULT NULL,
+  `other_appropriate_certification_input` varchar(20) DEFAULT NULL,
+  `is_12a_certificate` varchar(20) DEFAULT NULL,
+  `is_12a_certificate_cancle` varchar(20) DEFAULT NULL,
+  `is_tax_exemption_80g` varchar(20) DEFAULT NULL,
+  `is_perpetuity_valid` varchar(20) DEFAULT NULL,
+  `is_valid_tax_exemption` varchar(20) DEFAULT NULL,
+  `is_certificate_exist` varchar(20) DEFAULT NULL,
+  `appropriate_certification` varchar(250) DEFAULT NULL,
+  `code` varchar(100) DEFAULT NULL,
+  `upload_proof_tax_exemption` varchar(100) DEFAULT NULL,
+  `upload_proof_tax_exemption_actual` varchar(200) NOT NULL,
+  `upload_proof_12A_reg` varchar(100) DEFAULT NULL,
+  `upload_proof_12A_reg_actual` varchar(200) NOT NULL,
+  `upload_80G_reg` varchar(100) DEFAULT NULL,
+  `upload_80G_reg_actual` varchar(200) NOT NULL,
+  `upload_proof_80G_incometax` varchar(100) DEFAULT NULL,
+  `upload_proof_80G_incometax_actual` varchar(200) NOT NULL,
+  `soft_copy_pancard` varchar(100) DEFAULT NULL,
+  `soft_copy_pancard_actual` varchar(200) NOT NULL,
+  `proof_of_TAN` varchar(100) DEFAULT NULL,
+  `proof_of_TAN_actual` varchar(200) NOT NULL,
+  `epf_for_last_year` varchar(100) DEFAULT NULL,
+  `epf_for_last_year_actual` varchar(200) NOT NULL,
+  `tax_for_last_year` varchar(100) DEFAULT NULL,
+  `tax_for_last_year_actual` varchar(200) NOT NULL,
+  `credibility_alliance_report` varchar(100) DEFAULT NULL,
+  `credibility_alliance_report_actual` varchar(200) NOT NULL,
+  `non_financial_partnerships` varchar(50) DEFAULT NULL,
+  `leadership_network` varchar(50) DEFAULT NULL,
+  `blacklist` varchar(50) DEFAULT NULL,
+  `guilty` varchar(50) DEFAULT NULL,
+  `religious_affiliation_on_radio` varchar(50) DEFAULT NULL,
+  `bajaj_group_involved` varchar(50) DEFAULT NULL,
+  `senior_member_involved` varchar(50) DEFAULT NULL,
+  `previously_recieve_funding` varchar(30) DEFAULT NULL,
+  `received_award` varchar(30) DEFAULT NULL,
+  `received_national_award` varchar(50) DEFAULT NULL,
+  `upload_annual_report_1` varchar(50) DEFAULT NULL,
+  `upload_annual_report_2` varchar(50) DEFAULT NULL,
+  `upload_annual_report_3` varchar(50) DEFAULT NULL,
+  `upload_annual_report_1_actual` varchar(200) NOT NULL,
+  `upload_annual_report_2_actual` varchar(200) NOT NULL,
+  `upload_annual_report_3_actual` varchar(200) NOT NULL,
+  `governing_council` varchar(250) DEFAULT NULL,
+  `is_non_financial_partnerships` varchar(50) DEFAULT NULL,
+  `is_leadership_network` varchar(50) DEFAULT NULL,
+  `is_guilty` varchar(50) DEFAULT NULL,
+  `is_blacklist` varchar(10) NOT NULL,
+  `is_political_affiliation` varchar(50) DEFAULT NULL,
+  `optradio2` varchar(50) DEFAULT NULL,
+  `optradio3` varchar(50) DEFAULT NULL,
+  `optradio4` varchar(50) DEFAULT NULL,
+  `optradio5` varchar(50) DEFAULT NULL,
+  `optradio6` varchar(50) DEFAULT NULL,
+  `optradio7` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+ALTER TABLE `ngo`  ADD `upload_organogram` VARCHAR(100) NULL DEFAULT NULL  AFTER `optradio7`,  ADD `upload_organogram_actual` VARCHAR(100) NULL DEFAULT NULL  AFTER `upload_organogram`,  ADD `entity_have_governing_board` VARCHAR(100) NULL DEFAULT NULL  AFTER `upload_organogram_actual`,  ADD `defined_structure_decission_making` VARCHAR(100) NULL DEFAULT NULL  AFTER `entity_have_governing_board`,  ADD `number_of_employee` INT(11) NULL DEFAULT NULL  AFTER `defined_structure_decission_making`,  ADD `detail_body_member` VARCHAR(100) NULL DEFAULT NULL  AFTER `number_of_employee`,  ADD `number_of_employee_through_contractor` INT(11) NULL DEFAULT NULL  AFTER `detail_body_member`,  ADD `number_parttime_employees` INT(11) NULL DEFAULT NULL  AFTER `number_of_employee_through_contractor`,  ADD `renumeration_leadership` VARCHAR(100) NULL DEFAULT NULL  AFTER `number_parttime_employees`,  ADD `governing_body_member_det` LONGTEXT NULL DEFAULT NULL  AFTER `renumeration_leadership`,  ADD `vehicles_details` LONGTEXT NULL DEFAULT NULL  AFTER `governing_body_member_det`,  ADD `major_donors` LONGTEXT NULL DEFAULT NULL  AFTER `vehicles_details`,  ADD `budget_details` LONGTEXT NULL DEFAULT NULL  AFTER `major_donors`,  ADD `foreign_travel_taken_by_staff` LONGTEXT NULL DEFAULT NULL  AFTER `budget_details`,  ADD `renumeration_of_senior_leadership` LONGTEXT NULL DEFAULT NULL  AFTER `foreign_travel_taken_by_staff`;
+
+
+ALTER TABLE `ngo`  ADD `full_time_staff_numbers` LONGTEXT NULL DEFAULT NULL  AFTER `renumeration_of_senior_leadership`,  ADD `part_time_staff_numbers` LONGTEXT NULL DEFAULT NULL  AFTER `full_time_staff_numbers`,  ADD `gst_number` VARCHAR(50) NULL DEFAULT NULL  AFTER `part_time_staff_numbers`,  ADD `entity_have_gst_num` VARCHAR(100) NULL DEFAULT NULL  AFTER `gst_number`,  ADD `upload_financial_statement1` VARCHAR(100) NULL DEFAULT NULL  AFTER `entity_have_gst_num`,  ADD `upload_financial_statement2` VARCHAR(100) NULL DEFAULT NULL  AFTER `upload_financial_statement1`,  ADD `upload_financial_statement3` VARCHAR(100) NULL DEFAULT NULL  AFTER `upload_financial_statement2`,  ADD `upload_financial_statement1_actual` VARCHAR(100) NULL DEFAULT NULL  AFTER `upload_financial_statement3`,  ADD `upload_financial_statement2_actual` VARCHAR(100) NULL DEFAULT NULL  AFTER `upload_financial_statement1_actual`,  ADD `upload_financial_statement3_actual` VARCHAR(100) NULL DEFAULT NULL  AFTER `upload_financial_statement2_actual`,  ADD `uplpad_ITR_1` VARCHAR(100) NULL DEFAULT NULL  AFTER `upload_financial_statement3_actual`,  ADD `uplpad_ITR_2` VARCHAR(100) NULL DEFAULT NULL  AFTER `uplpad_ITR_1`,  ADD `uplpad_ITR_3` VARCHAR(100) NULL DEFAULT NULL  AFTER `uplpad_ITR_2`,  ADD `uplpad_ITR_1_actual` VARCHAR(100) NULL DEFAULT NULL  AFTER `uplpad_ITR_3`,  ADD `uplpad_ITR_2_actual` VARCHAR(100) NULL DEFAULT NULL  AFTER `uplpad_ITR_1_actual`,  ADD `uplpad_ITR_3_actual` VARCHAR(100) NULL DEFAULT NULL  AFTER `uplpad_ITR_2_actual`,  ADD `gst_certificate` VARCHAR(100) NULL DEFAULT NULL  AFTER `uplpad_ITR_3_actual`,  ADD `gst_certificate_actual` VARCHAR(100) NULL DEFAULT NULL  AFTER `gst_certificate`,  ADD `upload_cancelled_cheque` VARCHAR(100) NULL DEFAULT NULL  AFTER `gst_certificate_actual`,  ADD `upload_cancelled_cheque_actual` VARCHAR(100) NULL DEFAULT NULL  AFTER `upload_cancelled_cheque`;
+
+ALTER TABLE `ngo` ADD `name_of_organization` VARCHAR(100) NULL DEFAULT NULL AFTER `upload_cancelled_cheque_actual`, ADD `gst_exemption_letter` VARCHAR(100) NULL DEFAULT NULL AFTER `name_of_organization`, ADD `gst_exemption_letter_actual` VARCHAR(100) NULL DEFAULT NULL AFTER `gst_exemption_letter`, ADD `other_policies` LONGTEXT NULL DEFAULT NULL AFTER `gst_exemption_letter_actual`, ADD `optradio_policy` VARCHAR(100) NULL DEFAULT NULL AFTER `other_policies`, ADD `optradio_whistleblower_policy` VARCHAR(100) NULL DEFAULT NULL AFTER `optradio_policy`, ADD `optradio_child_protection_policy` VARCHAR(100) NULL DEFAULT NULL AFTER `optradio_whistleblower_policy`, ADD `multiple_img_upload` LONGTEXT NULL DEFAULT NULL AFTER `optradio_child_protection_policy`, ADD `multiple_img_upload2` LONGTEXT NULL DEFAULT NULL AFTER `multiple_img_upload`, ADD `other_policies_name` VARCHAR(100) NULL DEFAULT NULL AFTER `multiple_img_upload2`;
+
+
+
+
+
+
+ALTER TABLE `ngo`
+  ADD PRIMARY KEY (`id`);
+  
+
+ALTER TABLE `ngo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;  
+  
